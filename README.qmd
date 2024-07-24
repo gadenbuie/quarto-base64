@@ -53,7 +53,7 @@ from shiny.express import render, ui
 
 @render.ui
 def image():
-    return ui.image(src="photo.png")
+    return ui.img(src="photo.png")
 
 ## file: www/photo.png
 ## type: binary
