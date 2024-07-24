@@ -1,0 +1,23 @@
+---
+title: "base64 for Quarto"
+---
+
+{{< include README.md >}}
+
+## Example
+
+```{.markdown shortcodes="false"}
+{{< base64 photo.png >}}
+```
+
+```{.markdown}
+{{< base64 photo.png >}}
+```
+
+```{.markdown shortcodes="false"}
+<img src="{{< base64-data photo.png >}}">
+```
+
+```{=html}
+<img src="{{< base64-data photo.png >}}">
+```
