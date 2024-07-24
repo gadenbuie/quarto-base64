@@ -8,7 +8,7 @@ format:
     toc: true
     toc-level: 2
     toc-location: right
-    toc-title: "now"
+    toc-title: "base64"
     code-links:
       - text: gadenbuie/quarto-base64
         href: "https://github.com/gadenbuie/quarto-base64"
