@@ -6,15 +6,23 @@ local puremagic = require("puremagic")
 local function encode_base64(file_path)
   -- Open the file in binary read mode
   local file = io.open(file_path, "rb")
-  if not file then
-    assert(file, "Could not open file at " .. file_path)
-  end
+  assert(file, "Could not open file at " .. file_path)
 
   -- Read the entire file content
   local content = file:read("*all")
   file:close()
-  
-  return quarto.base64.encode(content)
+
+  enc = quarto.base64.encode(content)
+  assert(enc, "Failed to base64 encode file " .. file_path)
+
+  -- Split the base64 string into lines of 76 characters each
+  local lines = {}
+  for i = 1, #enc, 76 do
+    table.insert(lines, enc:sub(i, i + 75))
+  end
+
+  -- Join the lines with newlines
+  return table.concat(lines, "\n")
 end
 
 local function data_encode_base64(file_path, mime_type)
@@ -28,7 +36,7 @@ local function data_encode_base64(file_path, mime_type)
     mime_type = puremagic.via_path(file_path)
   end
 
-  
+
   if mime_type == nil then
     quarto.log.error(
       "Failed to guess mime type for " .. file_path .. ".\n" ..
