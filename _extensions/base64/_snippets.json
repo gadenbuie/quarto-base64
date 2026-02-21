@@ -7,14 +7,14 @@
     "description": "Encode a file as a base64 string."
   },
   "Base64 Data URI": {
-    "prefix": "base64-data",
+    "prefix": "data",
     "body": [
       "{{< base64-data ${1:path/to/file} >}}"
     ],
     "description": "Encode a file as a base64 data URI with automatic MIME type detection."
   },
   "Base64 Data URI with MIME Type": {
-    "prefix": "base64-data-mime",
+    "prefix": "data-mime",
     "body": [
       "{{< base64-data ${1:path/to/file} ${2:image/png} >}}"
     ],
